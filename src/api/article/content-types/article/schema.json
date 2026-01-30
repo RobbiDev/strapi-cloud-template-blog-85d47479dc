@@ -15,35 +15,56 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "text",
-      "maxLength": 80
-    },
     "slug": {
       "type": "uid",
       "targetField": "title"
     },
-    "cover": {
+    "excerpt": {
+      "type": "text",
+      "maxLength": 80
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "featuredImage": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
-    },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
+      "type": "enumeration",
+      "enum": [
+        "press-release",
+        "news-event",
+        "featured-article"
+      ]
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    "articleType": {
+      "type": "enumeration",
+      "enum": [
+        "internal",
+        "external"
+      ]
+    },
+    "externalUrl": {
+      "type": "string"
+    },
+    "externalSource": {
+      "type": "string"
+    },
+    "isFeatured": {
+      "type": "boolean"
+    },
+    "isHighlighted": {
+      "type": "boolean"
+    },
+    "tags": {
+      "type": "json"
     }
   }
 }

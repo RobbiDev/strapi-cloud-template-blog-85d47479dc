@@ -535,6 +535,94 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareerPageCareerPage extends Struct.SingleTypeSchema {
+  collectionName: 'career_pages';
+  info: {
+    displayName: 'Career Page';
+    pluralName: 'career-pages';
+    singularName: 'career-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career-page.career-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
+  collectionName: 'careers';
+  info: {
+    displayName: 'Career Postings';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    applicationType: Schema.Attribute.Enumeration<['internal', 'external']>;
+    category: Schema.Attribute.Enumeration<
+      [
+        'technology-it ',
+        'maintenance',
+        'general-labor',
+        'accounting-finance',
+        'operations',
+        'sales-marketing',
+        'engineering',
+        'quality-assurance`',
+      ]
+    >;
+    closingDate: Schema.Attribute.DateTime;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    experienceLevel: Schema.Attribute.Enumeration<
+      ['entry', 'intermediate', 'experienced', 'senior', 'management']
+    >;
+    externalUrl: Schema.Attribute.Text;
+    isActive: Schema.Attribute.Boolean;
+    isFeatured: Schema.Attribute.Boolean;
+    jobType: Schema.Attribute.Enumeration<
+      ['full-time', 'part-time', 'contract']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career.career'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.Enumeration<
+      ['Montreal, QC', 'Thomasville, NC', 'Victoriaville, QC']
+    >;
+    locationType: Schema.Attribute.Enumeration<['on-site', 'hybrid', 'remote']>;
+    postedAt: Schema.Attribute.Date;
+    publishedAt: Schema.Attribute.DateTime;
+    requirements: Schema.Attribute.Blocks;
+    responsibilities: Schema.Attribute.Blocks;
+    salary: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -1111,6 +1199,8 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::career-page.career-page': ApiCareerPageCareerPage;
+      'api::career.career': ApiCareerCareer;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'plugin::content-releases.release': PluginContentReleasesRelease;

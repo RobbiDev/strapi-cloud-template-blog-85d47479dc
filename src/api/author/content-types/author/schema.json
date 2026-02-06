@@ -27,6 +27,18 @@
     },
     "email": {
       "type": "string"
+    },
+    "role": {
+      "type": "text"
+    },
+    "showEmail": {
+      "type": "boolean"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "authors"
     }
   }
 }

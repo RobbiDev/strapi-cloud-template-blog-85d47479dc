@@ -15,6 +15,9 @@
     "title": {
       "type": "string"
     },
+    "publishedDate": {
+      "type": "date"
+    },
     "slug": {
       "type": "uid",
       "targetField": "title"
@@ -36,6 +39,12 @@
         "videos"
       ]
     },
+    "authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author",
+      "mappedBy": "author"
+    },
     "category": {
       "type": "enumeration",
       "enum": [
@@ -49,6 +58,14 @@
       "enum": [
         "internal",
         "external"
+      ]
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "Montreal, QC",
+        "Thomasville, NC",
+        "Victoriaville, QC"
       ]
     },
     "externalUrl": {

@@ -23,14 +23,13 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "technology-it ",
-        "maintenance",
-        "general-labor",
-        "accounting-finance",
-        "operations",
-        "sales-marketing",
-        "engineering",
-        "quality-assurance`"
+        "Technology & IT",
+        "Maintenance & Engineering",
+        "General Labor",
+        "Accounting & Finance",
+        "Operations",
+        "Sales & Marketing",
+        "Quality Assurance"
       ]
     },
     "experienceLevel": {

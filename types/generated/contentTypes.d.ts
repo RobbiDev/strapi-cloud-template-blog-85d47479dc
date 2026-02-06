@@ -596,14 +596,13 @@ export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
     applicationType: Schema.Attribute.Enumeration<['internal', 'external']>;
     category: Schema.Attribute.Enumeration<
       [
-        'technology-it ',
-        'maintenance',
-        'general-labor',
-        'accounting-finance',
-        'operations',
-        'sales-marketing',
-        'engineering',
-        'quality-assurance`',
+        'Technology & IT',
+        'Maintenance & Engineering',
+        'General Labor',
+        'Accounting & Finance',
+        'Operations',
+        'Sales & Marketing',
+        'Quality Assurance',
       ]
     >;
     closingDate: Schema.Attribute.DateTime;

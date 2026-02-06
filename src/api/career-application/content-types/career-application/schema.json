@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "career_applications",
+  "info": {
+    "singularName": "career-application",
+    "pluralName": "career-applications",
+    "displayName": "Career Applications"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "jobPostingId": {
+      "type": "text"
+    },
+    "jobTitle": {
+      "type": "text"
+    },
+    "firstName": {
+      "type": "text"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "linkedinUrl": {
+      "type": "text"
+    },
+    "coverLetter": {
+      "type": "text"
+    },
+    "resumeUrl": {
+      "type": "text"
+    },
+    "submittedAt": {
+      "type": "datetime"
+    },
+    "applicationStatus": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "reviewed",
+        "contacted",
+        "rejected",
+        "hired"
+      ]
+    }
+  }
+}
